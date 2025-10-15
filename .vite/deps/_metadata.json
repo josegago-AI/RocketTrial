@@ -2,24 +2,30 @@
   "hash": "d4e52fda",
   "configHash": "8546a0ab",
   "lockfileHash": "04bc05bd",
-  "browserHash": "be208e52",
+  "browserHash": "d4bb8320",
   "optimized": {
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "bee9f1c5",
+      "fileHash": "7893c78a",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "fd8a7394",
+      "fileHash": "87c4f8ee",
       "needsInterop": true
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "b4274004",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-GFWMZNU4": {
-      "file": "chunk-GFWMZNU4.js"
+    "chunk-JRE55LYH": {
+      "file": "chunk-JRE55LYH.js"
     }
   }
 }
