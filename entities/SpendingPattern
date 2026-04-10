@@ -1,0 +1,77 @@
+{
+  "name": "SpendingPattern",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "Spending category"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Spending subcategory"
+    },
+    "merchant_name": {
+      "type": "string",
+      "description": "Merchant or vendor name"
+    },
+    "average_amount": {
+      "type": "number",
+      "description": "Average transaction amount for this pattern"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "bi-weekly",
+        "monthly",
+        "quarterly",
+        "annually",
+        "irregular"
+      ],
+      "description": "Frequency of this spending pattern"
+    },
+    "last_transaction_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last transaction in this pattern"
+    },
+    "total_transactions": {
+      "type": "integer",
+      "description": "Total number of transactions in this pattern"
+    },
+    "trend": {
+      "type": "string",
+      "enum": [
+        "increasing",
+        "decreasing",
+        "stable"
+      ],
+      "description": "Trend direction for this spending pattern"
+    },
+    "is_subscription": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this appears to be a recurring subscription"
+    },
+    "next_predicted_date": {
+      "type": "string",
+      "format": "date",
+      "description": "AI prediction for next transaction in this pattern"
+    }
+  },
+  "required": [
+    "category",
+    "average_amount",
+    "frequency",
+    "total_transactions"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
