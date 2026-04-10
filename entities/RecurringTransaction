@@ -1,0 +1,72 @@
+{
+  "name": "RecurringTransaction",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Transaction title"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Transaction amount"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "income",
+        "expense"
+      ],
+      "description": "Transaction type"
+    },
+    "category": {
+      "type": "string",
+      "description": "Transaction category"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Transaction subcategory"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "weekly",
+        "bi-weekly",
+        "monthly",
+        "quarterly",
+        "annually"
+      ],
+      "default": "monthly",
+      "description": "Recurrence frequency"
+    },
+    "next_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Next occurrence date"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the recurring transaction is active"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    }
+  },
+  "required": [
+    "title",
+    "amount",
+    "type",
+    "category",
+    "frequency",
+    "next_date"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
