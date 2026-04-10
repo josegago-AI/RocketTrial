@@ -1,0 +1,78 @@
+{
+  "name": "Investment",
+  "type": "object",
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "description": "Stock symbol (e.g., AAPL, MSFT)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Investment name"
+    },
+    "shares": {
+      "type": "number",
+      "description": "Number of shares owned"
+    },
+    "purchase_price": {
+      "type": "number",
+      "description": "Average purchase price per share"
+    },
+    "current_price": {
+      "type": "number",
+      "description": "Current market price per share"
+    },
+    "portfolio_percentage": {
+      "type": "number",
+      "description": "Percentage of total portfolio"
+    },
+    "sector": {
+      "type": "string",
+      "enum": [
+        "technology",
+        "healthcare",
+        "finance",
+        "energy",
+        "consumer",
+        "industrial",
+        "real_estate",
+        "utilities",
+        "other"
+      ],
+      "default": "other",
+      "description": "Investment sector"
+    },
+    "investment_type": {
+      "type": "string",
+      "enum": [
+        "stock",
+        "etf",
+        "bond",
+        "crypto",
+        "mutual_fund",
+        "other"
+      ],
+      "default": "stock",
+      "description": "Type of investment"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the price was last updated"
+    }
+  },
+  "required": [
+    "symbol",
+    "name",
+    "shares",
+    "purchase_price"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
