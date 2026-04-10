@@ -1,0 +1,71 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Expense description"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Expense amount"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "needs",
+        "wants",
+        "savings"
+      ],
+      "default": "needs",
+      "description": "Main expense category"
+    },
+    "subcategory": {
+      "type": "string",
+      "enum": [
+        "rent",
+        "groceries",
+        "utilities",
+        "transportation",
+        "healthcare",
+        "dining",
+        "entertainment",
+        "shopping",
+        "subscriptions",
+        "emergency_fund",
+        "investments",
+        "retirement",
+        "other"
+      ],
+      "default": "other",
+      "description": "Specific expense subcategory"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expense date"
+    },
+    "is_recurring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a recurring expense"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the expense"
+    }
+  },
+  "required": [
+    "title",
+    "amount",
+    "date"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
