@@ -1,0 +1,53 @@
+{
+  "name": "Income",
+  "type": "object",
+  "properties": {
+    "source_name": {
+      "type": "string",
+      "description": "Name of income source (e.g., Salary, Freelance, Side Hustle)"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Monthly income amount"
+    },
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "monthly",
+        "weekly",
+        "bi-weekly",
+        "annual"
+      ],
+      "default": "monthly",
+      "description": "Income frequency"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "primary",
+        "secondary",
+        "passive",
+        "other"
+      ],
+      "default": "primary",
+      "description": "Income category"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this income source is currently active"
+    }
+  },
+  "required": [
+    "source_name",
+    "amount"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
