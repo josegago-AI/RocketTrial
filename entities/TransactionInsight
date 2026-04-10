@@ -1,0 +1,70 @@
+{
+  "name": "TransactionInsight",
+  "type": "object",
+  "properties": {
+    "transaction_id": {
+      "type": "string",
+      "description": "ID of the related transaction"
+    },
+    "insight_type": {
+      "type": "string",
+      "enum": [
+        "anomaly",
+        "trend",
+        "opportunity",
+        "alert",
+        "prediction"
+      ],
+      "description": "Type of insight generated"
+    },
+    "title": {
+      "type": "string",
+      "description": "Brief title of the insight"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the insight"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "AI confidence score for this insight"
+    },
+    "category": {
+      "type": "string",
+      "description": "Category this insight relates to"
+    },
+    "merchant_name": {
+      "type": "string",
+      "description": "Merchant or vendor name if applicable"
+    },
+    "suggested_action": {
+      "type": "string",
+      "description": "Recommended action for the user"
+    },
+    "is_dismissed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether user has dismissed this insight"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata about the insight"
+    }
+  },
+  "required": [
+    "insight_type",
+    "title",
+    "description",
+    "confidence_score"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
