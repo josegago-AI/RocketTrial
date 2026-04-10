@@ -1,0 +1,66 @@
+{
+  "name": "SavingsGoal",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Goal title"
+    },
+    "target_amount": {
+      "type": "number",
+      "description": "Target amount to save"
+    },
+    "current_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "Current saved amount"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Target completion date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "emergency",
+        "vacation",
+        "home",
+        "car",
+        "education",
+        "retirement",
+        "other"
+      ],
+      "default": "other",
+      "description": "Goal category"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "default": "medium",
+      "description": "Goal priority"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this goal is active"
+    }
+  },
+  "required": [
+    "title",
+    "target_amount",
+    "target_date"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
