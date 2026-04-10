@@ -1,0 +1,62 @@
+{
+  "name": "Budget",
+  "type": "object",
+  "properties": {
+    "month": {
+      "type": "string",
+      "format": "date",
+      "description": "Budget month (YYYY-MM format)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "needs",
+        "wants",
+        "savings"
+      ],
+      "description": "Budget category"
+    },
+    "subcategory": {
+      "type": "string",
+      "enum": [
+        "rent",
+        "groceries",
+        "utilities",
+        "transportation",
+        "healthcare",
+        "dining",
+        "entertainment",
+        "shopping",
+        "subscriptions",
+        "emergency_fund",
+        "investments",
+        "retirement",
+        "other"
+      ],
+      "description": "Budget subcategory"
+    },
+    "planned_amount": {
+      "type": "number",
+      "description": "Planned budget amount"
+    },
+    "actual_amount": {
+      "type": "number",
+      "default": 0,
+      "description": "Actual spent amount"
+    }
+  },
+  "required": [
+    "month",
+    "category",
+    "subcategory",
+    "planned_amount"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
