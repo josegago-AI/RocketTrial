@@ -1,0 +1,46 @@
+{
+  "name": "BankAccount",
+  "type": "object",
+  "properties": {
+    "account_name": {
+      "type": "string",
+      "description": "A nickname for the account (e.g., 'Chase Checking')"
+    },
+    "account_type": {
+      "type": "string",
+      "enum": [
+        "checking",
+        "savings",
+        "credit_card",
+        "investment",
+        "other"
+      ],
+      "description": "The type of account"
+    },
+    "bank_name": {
+      "type": "string",
+      "description": "Name of the financial institution"
+    },
+    "manual_balance": {
+      "type": "number",
+      "description": "Manually entered current balance"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the balance was last updated manually"
+    }
+  },
+  "required": [
+    "account_name",
+    "account_type"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
